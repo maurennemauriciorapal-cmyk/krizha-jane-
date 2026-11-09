@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KRIZHA JANE DE VERA | My Portfolio</title>
+
+<style>
+
+/* GENERAL STYLE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #70465a;
+    background: linear-gradient(
+        -45deg,
+        #ffe0ed,
+        #fff5fa,
+        #f8c8dd,
+        #ffeaf3
+    );
+    background-size: 400% 400%;
+    animation: bgMove 12s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* FLOATING DECORATIONS */
+#decorations {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.floating {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {opacity: .8;}
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* NAVIGATION */
+header {
+    background: rgba(255,255,255,.75);
+    backdrop-filter: blur(12px);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 15px #e9b4cb;
+}
+
+.logo {
+    color: #bc5b85;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: #85516b;
+    text-decoration: none;
+    margin: 8px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #e65d9c;
+}
+
+/* HERO */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 7px solid white;
+    object-fit: cover;
+    box-shadow: 0 0 30px #dc8bb1;
+    animation: profileMove 3s infinite ease-in-out;
+}
+
+@keyframes profileMove {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-12px);}
+}
+
+.hero h1 {
+    font-size: clamp(30px, 6vw, 52px);
+    color: #c34f83;
+    margin: 20px 0 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.btn {
+    display: inline-block;
+    background: #d96b9b;
+    color: white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px #e9a6c3;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    background: #b94679;
+}
+
+/* SECTIONS */
+section {
+    padding: 75px 8%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    font-size: 32px;
+    color: #b94f80;
+    margin-bottom: 25px;
+}
+
+.about-box {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255,255,255,.8);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #ebbed1;
+    line-height: 1.9;
+}
+
+/* HOBBIES */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 220px;
+    padding: 28px 20px;
+    background: rgba(255,255,255,.85);
+    border-radius: 22px;
+    box-shadow: 0 5px 18px #e9bfd1;
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    background: #fff;
+}
+
+.card .emoji {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: #bd5785;
+    margin-bottom: 10px;
+}
+
+/* EDUCATION */
+.education-card {
+    max-width: 650px;
+    margin: 18px auto;
+    background: rgba(255,255,255,.85);
+    padding: 25px;
+    border-left: 6px solid #db80a9;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 4px 15px #eac3d5;
+    transition: .3s;
+}
+
+.education-card:hover {
+    transform: translateX(8px);
+}
+
+.education-card h3 {
+    color: #b94f80;
+    margin-bottom: 12px;
+}
+
+.education-card p {
+    margin: 7px 0;
+}
+
+/* GOALS */
+.goal-box {
+    max-width: 700px;
+    margin: 12px auto;
+    background: #fff;
+    padding: 18px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px #edc5d7;
+}
+
+/* CONTACT */
+.contact-box {
+    max-width: 650px;
+    margin: auto;
+    background: rgba(255,255,255,.8);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #e9b8ce;
+    line-height: 2;
+}
+
+.contact-box a {
+    color: #b94f80;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+footer {
+    background: #d36d99;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+/* MOBILE */
+@media(max-width: 650px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+        margin: 5px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    .about-box, .contact-box {
+        padding: 23px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING DECORATIONS -->
+<div id="decorations"></div>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="logo">♡ KRISHA JANE DE VERA</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#goals">Goals</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <img src="profile.jpg"
+         alt="KRIZHA's Profile Picture"
+         class="profile">
+
+    <p>♡ Hello! Welcome to my personal website ♡</p>
+
+    <h1>KRIZHA JANE DE VERA</h1>
+
+    <p>Bachelor of Science in Computer Science</p>
+
+    <p>Dream Big • Work Hard • Stay Positive ✨</p>
+
+    <a href="#about" class="btn">Explore My World ♡</a>
+
+</section>
+
+<!-- ABOUT ME -->
+<section id="about">
+
+    <h2>About Me 🌷</h2>
+
+    <div class="about-box">
+
+        <p>
+            Hello! My name is <b>KRIZHA JANE DE VERA</b>.
+            I am a student taking Bachelor of Science in
+            Computer Science at Wesleyan University Philippines.
+        </p>
+
+        <p>
+            I am someone who loves learning new things,
+            exploring my interests, and improving my skills.
+            I believe that every challenge is an opportunity
+            to grow and become a better person.
+        </p>
+
+        <p>
+            My journey is just beginning, and I am excited
+            about the experiences and opportunities ahead.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+
+    <h2>My Hobbies 🎀</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <div class="emoji">🎵</div>
+            <h3>Listening to Music</h3>
+            <p>I enjoy listening to my favorite songs.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🎬</div>
+            <h3>Watching Movies</h3>
+            <p>I love watching movies during my free time.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🎮</div>
+            <h3>Online Games</h3>
+            <p>I enjoy playing online games.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🍳</div>
+            <h3>Cooking</h3>
+            <p>I love preparing and cooking delicious food.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+
+    <h2>My Goals in Life ✨</h2>
+
+    <div class="goal-box">
+        🎓 Finish my studies.
+    </div>
+
+    <div class="goal-box">
+        💼 Have a successful career.
+    </div>
+
+    <div class="goal-box">
+        ❤️ Help my family and give them a better life.
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+
+    <h2>My Educational Background 🎓</h2>
+
+    <div class="education-card">
+        <h3>🏫 Elementary</h3>
+        <p><b>School:</b> Maria Aurora Central School</p>
+        <p><b>Year Graduated:</b> 2020</p>
+    </div>
+
+    <div class="education-card">
+        <h3>📚 Junior High School</h3>
+        <p><b>School:</b> Maria Aurora National High School</p>
+        <p><b>Year Graduated:</b> 2024</p>
+    </div>
+
+    <div class="education-card">
+        <h3>🎓 Senior High School</h3>
+        <p><b>School:</b> Maria Aurora National High School</p>
+        <p><b>Strand:</b> TVL (Cookery)</p>
+    </div>
+
+    <div class="education-card">
+        <h3>💻 College</h3>
+        <p><b>School:</b> Wesleyan University Philippines</p>
+        <p><b>Course:</b> Bachelor of Science in Computer Science</p>
+        <p><b>Status:</b> Currently Studying</p>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <h2>Contact Me 💌</h2>
+
+    <div class="contact-box">
+
+        <p>📱 <b>Phone:</b> 09386129539</p>
+
+        <p>
+            📧 <b>Email:</b>
+            <a href="mailto:krizhajanedevera46@gmail.com">
+                krizhajanedevera46@gmail.com
+            </a>
+        </p>
+
+        <p>Thank you for visiting my website!</p>
+
+        <p>Keep shining and believing in yourself. ♡</p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p>© 2026 KRIZHA JANE DE VERA</p>
+
+    <p>Made with ♡ and creativity</p>
+
+</footer>
+
+<!-- JAVASCRIPT ANIMATIONS -->
+<script>
+
+const decorations = document.getElementById("decorations");
+
+const symbols = ["♡", "💗", "✨", "🦋", "🌸", "💕"];
+
+function createDecoration() {
+
+    const item = document.createElement("div");
+
+    item.className = "floating";
+
+    item.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    item.style.left = Math.random() * 100 + "vw";
+
+    item.style.fontSize =
+        (15 + Math.random() * 22) + "px";
+
+    item.style.animationDuration =
+        (6 + Math.random() * 7) + "s";
+
+    decorations.appendChild(item);
+
+    setTimeout(() => {
+        item.remove();
+    }, 14000);
+}
+
+setInterval(createDecoration, 500);
+
+</script>
+
+</body>
+</html>
